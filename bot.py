@@ -8,7 +8,10 @@ from discord import Spotify
 import shutil
 import spotipy
 
-client = commands.Bot(command_prefix = "")
+intents = discord.Intents.default()
+intents.member = True
+
+client = commands.Bot(command_prefix = "", intents = intents)
 client.remove_command('help')
 
 global name
