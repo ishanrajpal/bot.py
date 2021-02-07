@@ -32,7 +32,6 @@ async def on_member_join(member):
             member_count = len(channel.guild.members)
             await channel.send(f"""Total Members in this Server is: {member_count}""")
             
-
 @client.event
 async def on_member_remove(member):
     print(f'{member} has left a server.')
