@@ -10,6 +10,7 @@ import spotipy
 
 #intents = discord.Intents.default()
 #intents.member = True
+intents = discord.Intents(messages=True, guilds=True)
 
 client = commands.Bot(command_prefix ="")
 client.remove_command('help')
