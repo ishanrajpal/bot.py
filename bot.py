@@ -116,11 +116,16 @@ async def help(ctx):
     
     await ctx.channel.send(content=None, embed=embed)
 @client.command()
+async def git(ctx):
+    await ctx.channel.send("https://github.com/ishanrajpal")
+
+@client.command()
 async def info(ctx):  
     embed = discord.Embed(title="About Killerfrost?",description="Some details")
     embed.add_field(name="Owner",value="Ishan rajpal")
     embed.add_field(name="Creater Discord I'd",value='KillerFrost#9884')        ##
-    embed.add_field(name="Main server",value="Hellplay")                        ##to be added
+    embed.add_field(name="Main server",value="Hellplay")
+    embed.add_field(name="Github",value="https://github.com/ishanrajpal")                        ##to be added
     embed.add_field(name="Capabilities",value="play music and do some stuffs")
     embed.add_field(name="Instagram",value="ishan_rajpal")
     await ctx.channel.send(content=None, embed=embed)
