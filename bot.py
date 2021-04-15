@@ -23,34 +23,49 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     guild=member.guild
-    await member.send(str(f'welcome to {guild}'))
+    embed=discord.Embed(title="Welcome to",color=0x9208ea,description=f"{guild}")
+    await member.send(content=None, embed=embed)        
+    #await member.send(str(f'welcome to {guild}'))
     #await member.send(str(f'welcome to {channel}'))
     for channel in member.guild.channels:
         if str(channel) == "general":
-            await channel.send(f"""Welcome to the server {member.mention}""")
+            #await channel.send(f"""Welcome to the server {member.mention}""")
             #await member.dm_channel.send(str(f"{mention},Welcome to the server{guild}").format(mention=mention,guild=guild))
-            member_count = len(channel.guild.members)
-            await channel.send(f"""Total Members in this Server is: {member_count}""")
+            #embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
+            #member_count = len(channel.guild.members)
+            embed=discord.Embed(title="Welcome to the server",color=0x9208ea,description=f"{member.mention}")
+            show_avatar = discord.Embed(
 
+            color = discord.Color.dark_blue()
+            )
+            show_avatar.set_image(url='{}'.format(member.avatar_url))
+            await channel.send(embed=show_avatar)
+            await channel.send(content=None, embed=embed)
 @client.event
 async def on_member_remove(member):
+    guild=member.guild
+    embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
+    await member.send(content=None, embed=embed)        
     print(f'{member} has left a server.')
     for channel in member.guild.channels:                   #change
         if str(channel) == "general":
-            await channel.send(f"""Sayonara{member.mention}""")
-            await channel.send("Member -= 1")
+            embed=discord.Embed(title="Sayonara",color=0x9208ea,description=f"{member.mention}")
+            #await channel.send(f"""Sayonara{member.mention}""")
+            embed.add_field(name="Member",value="-1")
             member_count = len(channel.guild.members)
-            await channel.send(f"""Total Members in this Server is: {member_count}""")
-
+            embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
+            await channel.send(content=None, embed=embed)
 @client.command()
-async def kick(ctx, member : discord.Member, *,reason=None):
+async def nikal(ctx, member : discord.Member, *,reason=None):
     await ctx.channel.purge(limit=2)
     await member.kick(reason=reason)
     await ctx.send(f'kicked{member.mention}')
 @client.command()
 async def ping(ctx):                        #change
-    await ctx.send(f"Your ping is :{round(client.latency * 1000)} ms")
-    
+    #await ctx.send(f"Your ping is :{round(client.latency * 1000)} ms")
+    embed=discord.Embed(title="Your ping is",color=0x9208ea,description=f"{round(client.latency * 1000)} ms")
+    await ctx.send(content=None, embed=embed)      
+
 @client.command()
 async def avatar(ctx, member: discord.Member):
     show_avatar = discord.Embed(
@@ -60,7 +75,7 @@ async def avatar(ctx, member: discord.Member):
     show_avatar.set_image(url='{}'.format(member.avatar_url))
     await ctx.send(embed=show_avatar)
 @client.command()
-async def clear(ctx,amount=5):
+async def abrakadabra(ctx,amount=5):
     await ctx.channel.purge(limit=amount)
 
 
