@@ -28,7 +28,7 @@ async def on_member_join(member):
     #await member.send(str(f'welcome to {guild}'))
     #await member.send(str(f'welcome to {channel}'))
     for channel in member.guild.channels:
-        if str(channel) == "general":
+        if str(channel) == "welcome":
             #await channel.send(f"""Welcome to the server {member.mention}""")
             #await member.dm_channel.send(str(f"{mention},Welcome to the server{guild}").format(mention=mention,guild=guild))
             #embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
@@ -48,12 +48,12 @@ async def on_member_remove(member):
     await member.send(content=None, embed=embed)        
     print(f'{member} has left a server.')
     for channel in member.guild.channels:                   #change
-        if str(channel) == "general":
+        if str(channel) == "leaves":
             embed=discord.Embed(title="Sayonara",color=0x9208ea,description=f"{member.mention}")
             #await channel.send(f"""Sayonara{member.mention}""")
-            embed.add_field(name="Member",value="-1")
-            member_count = len(channel.guild.members)
-            embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
+            #embed.add_field(name="Member",value="-1")
+            #member_count = len(channel.guild.members)
+            #embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
             await channel.send(content=None, embed=embed)
 @client.command()
 async def nikal(ctx, member : discord.Member, *,reason=None):
@@ -138,7 +138,7 @@ async def git(ctx):
 async def info(ctx):  
     embed = discord.Embed(title="About Killerfrost?",description="Some details")
     embed.add_field(name="Owner",value="Ishan rajpal")
-    embed.add_field(name="Creater Discord I'd",value='KillerFrost#9884')        ##
+    embed.add_field(name="Creater Discord I'd",value='UchihaMadara#9884')        ##
     embed.add_field(name="Main server",value="Hellplay")
     embed.add_field(name="Github",value="https://github.com/ishanrajpal")                        ##to be added
     embed.add_field(name="Capabilities",value="play music and do some stuffs")
