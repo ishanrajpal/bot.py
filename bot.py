@@ -47,21 +47,27 @@ async def on_member_remove(member):
     embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
     await member.send(content=None, embed=embed)        
     print(f'{member} has left a server.')
-    for channel in member.guild.channels:                   #change
+    for channel in member.guild.channels:                   
         if str(channel) == "leaves":
             embed=discord.Embed(title="Sayonara",color=0x9208ea,description=f"{member.mention}")
+            show_avatar = discord.Embed(
+            color = discord.Color.dark_blue()
+            )
+            show_avatar.set_image(url='{}'.format(member.avatar_url))
+            await channel.send(embed=show_avatar)
+            await channel.send(content=None, embed=embed)
             #await channel.send(f"""Sayonara{member.mention}""")
             #embed.add_field(name="Member",value="-1")
             #member_count = len(channel.guild.members)
             #embed.add_field(name="Total Members in this Server is:",value=f" {member_count}")
-            await channel.send(content=None, embed=embed)
+            #await channel.send(content=None, embed=embed)
 @client.command()
 async def nikal(ctx, member : discord.Member, *,reason=None):
     await ctx.channel.purge(limit=2)
     await member.kick(reason=reason)
     await ctx.send(f'kicked{member.mention}')
 @client.command()
-async def ping(ctx):                        #change
+async def ping(ctx):                        
     #await ctx.send(f"Your ping is :{round(client.latency * 1000)} ms")
     embed=discord.Embed(title="Your ping is",color=0x9208ea,description=f"{round(client.latency * 1000)} ms")
     await ctx.send(content=None, embed=embed)      
