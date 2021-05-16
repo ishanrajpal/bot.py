@@ -45,17 +45,29 @@ async def on_member_join(member):
 async def on_member_remove(member):
     guild=member.guild
     embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
-    await member.send(content=None, embed=embed)        
+    await member.send(content=None, embed=embed) 
     print(f'{member} has left a server.')
-    for channel in member.guild.channels:                   
+    for channel in member.guild.channels:                   #change
         if str(channel) == "general":
-            embed=discord.Embed(title="Sayonara",color=0x9208ea,description=f"{member.mention}")
+            await channel.send(f"""Sayonara{member.mention}""")
+            await channel.send("Member -= 1")
+            member_count = len(channel.guild.members)
+            await channel.send(f"""Total Members in this Server is: {member_count}""")
+
+#@client.event
+#async def on_member_remove(member):
+ #   embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
+  #  await member.send(content=None, embed=embed)        
+   # print(f'{member} has left a server.')
+    #for channel in member.guild.channels:                   
+     #   if str(channel) == "general":
+      #      embed=discord.Embed(title="Sayonara",color=0x9208ea,description=f"{member.mention}")
             #show_avatar = discord.Embed(
             #color = discord.Color.dark_blue()
            # )
             #show_avatar.set_image(url='{}'.format(member.avatar_url))
            # await channel.send(embed=show_avatar)
-            await channel.send(content=None, embed=embed)
+       #     await channel.send(content=None, embed=embed)
             #await channel.send(f"""Sayonara{member.mention}""")
             #embed.add_field(name="Member",value="-1")
             #member_count = len(channel.guild.members)
