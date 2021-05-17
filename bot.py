@@ -1,6 +1,8 @@
 from logging import exception
 import discord
+from discord import channel
 from discord.ext import commands
+from discord.ext.commands.core import guild_only
 from discord.utils import get
 import youtube_dl
 import os
@@ -18,8 +20,9 @@ global name
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('With my own life'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game('Use help/info'))
     print(f'We have logged in as {client.user}')
+    await channel.send("Update Deployed For killerfrost")
 
 @client.event
 async def on_member_join(member):
@@ -57,6 +60,7 @@ async def on_member_remove(member):
         embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
         await member.send(content=None, embed=embed) 
     except exception as l:
+        await channel.send(f"{member.mention}Sayonara")
         print(f'{member}has left a server.')
         return(member) 
 
