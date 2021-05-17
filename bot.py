@@ -22,7 +22,7 @@ global name
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Use help/info'))
     print(f'We have logged in as {client.user}')
-    await channel.send("Update Deployed For killerfrost")
+    await client.get_channel(723567223192420446).send("Update Deployed For killerfrost")
 
 @client.event
 async def on_member_join(member):
@@ -39,7 +39,6 @@ async def on_member_join(member):
             #member_count = len(channel.guild.members)
             embed=discord.Embed(title="Welcome to the server",color=0x9208ea,description=f"{member.mention}")
             show_avatar = discord.Embed(
-
             color = discord.Color.dark_blue()
             )
             show_avatar.set_image(url='{}'.format(member.avatar_url))
