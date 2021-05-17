@@ -46,22 +46,22 @@ async def on_member_join(member):
             await channel.send(content=None, embed=embed)
 @client.event
 async def on_member_remove(member):
-    try:
+    #try:
 
-        print(f'{member} has left a server.')
-        for channel in member.guild.channels:                   #change
-            if str(channel) == "general":
-                await channel.send(f"""Sayonara{member.mention}""")
-                await channel.send("Member -= 1")
-                member_count = len(channel.guild.members)
-                await channel.send(f"""Total Members in this Server is: {member_count}""")
+    print(f'{member} has left a server.')
+    for channel in member.guild.channels:                   #change
+        if str(channel) == "general":
+            await channel.send(f"""Sayonara{member.mention}""")
+            await channel.send("Member -= 1")
+            member_count = len(channel.guild.members)
+            await channel.send(f"""Total Members in this Server is: {member_count}""")
         guild=member.guild
         embed=discord.Embed(title="We will miss you",color=0x9208ea,description=f"{guild}")
         await member.send(content=None, embed=embed) 
-    except exception as l:
-        await channel.send(f"{member.mention}Sayonara")
-        print(f'{member}has left a server.')
-        return(member) 
+    #except exception as l:
+     #   await channel.send(f"{member.mention}Sayonara")
+      #  print(f'{member}has left a server.')
+       # return(member) 
 
 
 #@client.event
