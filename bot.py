@@ -22,7 +22,7 @@ global name
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Use help/info'))
     print(f'We have logged in as {client.user}')
-    await client.get_channel(723567223192420446).send("Update Deployed For killerfrost")
+    await client.get_channel(723567223192420446).send("New Update Deployed For killerfrost")
 
 @client.event
 async def on_member_join(member):
@@ -137,7 +137,10 @@ async def no(ctx):
 async def all(ctx):
     await ctx.channel.purge(limit=1)
     await ctx.channel.send("@everyone Khele?")
-  
+@client.command()
+async def repeat (ctx,*,message):
+    await ctx.channel.purge(limit=1)
+    await ctx.send(f"{message}")  
 @client.command()
 async def help(ctx):  
     embed = discord.Embed(title="What can killer Frost do?",description="Some useful commands")
@@ -152,6 +155,7 @@ async def help(ctx):
     embed.add_field(name="stop",value="stop the song")
     embed.add_field(name="info",value="some basic details")
     embed.add_field(name="all",value="mention everyone to play")
+    embed.add_field(name="Repeat",value="Repeat your text")
     embed.add_field(name="avatar@user",value="pop up his/her display")
     
     
@@ -166,7 +170,7 @@ async def git(ctx):
 async def info(ctx):  
     embed = discord.Embed(title="About Killerfrost?",description="Some details")
     embed.add_field(name="Owner",value="Ishan rajpal")
-    embed.add_field(name="Creater Discord I'd",value='UchihaMadara#9884')        ##
+    embed.add_field(name="Creater",value='https://github.com/ishanrajpal')        ##       ##
     embed.add_field(name="Main server",value="Hellplay")
     embed.add_field(name="Github",value="https://github.com/ishanrajpal")                        ##to be added
     embed.add_field(name="Capabilities",value="play music and do some stuffs")
