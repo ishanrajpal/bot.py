@@ -22,7 +22,7 @@ global name
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Use help/info'))
     print(f'We have logged in as {client.user}')
-    await client.get_channel(723567223192420446).send("New Update Deployed For killerfrost")
+    await client.get_channel(723567223192420446).send("Reboot For killerfrost is Complete")
 
 @client.event
 async def on_member_join(member):
@@ -174,7 +174,7 @@ async def info(ctx):
     embed.add_field(name="Main server",value="Hellplay")
     embed.add_field(name="Github",value="https://github.com/ishanrajpal")                        ##to be added
     embed.add_field(name="Capabilities",value="play music and do some stuffs")
-    embed.add_field(name="Instagram",value="ishan_rajpal")
+    embed.add_field(name="Instagram",value="https://www.instagram.com/ishan_rajpal/?hl=en")
     await ctx.channel.send(content=None, embed=embed)
 @client.event
 async def on_command_error(ctx, error):
