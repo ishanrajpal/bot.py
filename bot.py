@@ -22,7 +22,7 @@ global name
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Use help/info'))
     print(f'We have logged in as {client.user}')
-    await client.get_channel(723567223192420446).send("Reboot For killerfrost is Complete")
+    await client.get_channel(736229451771150379).send("Reboot For killerfrost is Complete")
 
 @client.event
 async def on_member_join(member):
